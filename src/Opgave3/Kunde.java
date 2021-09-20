@@ -7,7 +7,7 @@ public class Kunde {
     private String kundeID;
     private String mobilnummer;
     private boolean VIP;
-    private int bonusPoints = 0;
+    private int bonusPoints;
     private int[] ordrenumre;
 
     public Kunde(String kundeID, String mobilnummer, boolean VIP){

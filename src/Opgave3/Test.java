@@ -8,7 +8,7 @@ public class Test {
 
 
         // print attributes for kunde 1
-        System.out.println("Kunde 1");
+        System.out.print("Kunde 1 = ");
         System.out.println(kunde1);
         System.out.println();
 
@@ -19,7 +19,7 @@ public class Test {
         kunde1.addToOdrenumre(22);
 
         // print attributes for kunde 1
-        System.out.println("Kunde 1");
+        System.out.print("Kunde 1 = ");
         System.out.println(kunde1);
         System.out.println();
 
