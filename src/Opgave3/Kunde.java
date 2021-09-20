@@ -7,7 +7,7 @@ public class Kunde {
     private String kundeID;
     private String mobilnummer;
     private boolean VIP;
-    private int bonusPoint = 0;
+    private int bonusPoints = 0;
     private int[] ordrenumre;
 
     public Kunde(String kundeID, String mobilnummer, boolean VIP){
@@ -23,6 +23,7 @@ public class Kunde {
                 ", mobilnummer='" + mobilnummer + '\'' +
                 ", VIP=" + VIP +
                 ", ordrenumre=" + Arrays.toString(ordrenumre) +
+                ", bounspoints=" + bonusPoints +
                 '}';
     }
 
@@ -54,16 +55,16 @@ public class Kunde {
         return ordrenumre;
     }
 
-    public int getBonusPoint() {
-        return bonusPoint;
+    public int getBonusPoints() {
+        return bonusPoints;
     }
 
-    public void setBonusPoint(int bonusPoint) {
-        this.bonusPoint = bonusPoint;
+    public void setBonusPoints(int bonusPoints) {
+        this.bonusPoints = bonusPoints;
     }
 
     public void addBonusPoints(int points){
-        bonusPoint += points;
+        bonusPoints += points;
     }
 
     public void addToOdrenumre(int ordre){
