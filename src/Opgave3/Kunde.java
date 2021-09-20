@@ -1,4 +1,6 @@
-package Opgave2;
+package Opgave3;
+
+import java.util.Arrays;
 
 public class Kunde {
 
@@ -6,11 +8,22 @@ public class Kunde {
     private String mobilnummer;
     private boolean VIP;
     private int bonusPoint = 0;
+    private int[] ordrenumre;
 
     public Kunde(String kundeID, String mobilnummer, boolean VIP){
         this.kundeID = kundeID;
         this.mobilnummer = mobilnummer;
         this.VIP = VIP;
+    }
+
+    @Override
+    public String toString() {
+        return "Kunde {" +
+                "kundeID='" + kundeID + '\'' +
+                ", mobilnummer='" + mobilnummer + '\'' +
+                ", VIP=" + VIP +
+                ", ordrenumre=" + Arrays.toString(ordrenumre) +
+                '}';
     }
 
     public String getKundeID() {
@@ -37,6 +50,10 @@ public class Kunde {
         this.VIP = VIP;
     }
 
+    public int[] getOrdrenumre() {
+        return ordrenumre;
+    }
+
     public int getBonusPoint() {
         return bonusPoint;
     }
@@ -47,5 +64,18 @@ public class Kunde {
 
     public void addBonusPoints(int points){
         bonusPoint += points;
+    }
+
+    public void addToOdrenumre(int ordre){
+        if (ordrenumre == null) {
+            ordrenumre = new int[1];
+            ordrenumre[0] = ordre;
+        }else{
+            int[] placeholder = new int[ordrenumre.length + 1];
+            System.arraycopy(ordrenumre, 0, placeholder, 0, ordrenumre.length);
+            placeholder[ordrenumre.length] = ordre;
+
+            ordrenumre = placeholder;
+        }
     }
 }
