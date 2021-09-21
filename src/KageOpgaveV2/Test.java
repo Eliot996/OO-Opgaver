@@ -16,7 +16,8 @@ public class Test {
 
         // get desired amount of portions, and calculate amounts
         System.out.print("How many portions do you want? ");
-        cake.calculateindgridientAmounts(getIntFromScanner());
+        cake.calculateingredientAmounts(getIntFromScanner());
+        System.out.println();
 
         // total amounts
         cake.calculateTotalWeigth();
@@ -31,11 +32,11 @@ public class Test {
         cake.calculateKCALPerPortions();
 
         //print list of ingredients
-        cake.printAmounts();
+        System.out.println(cake.getFormattedAmounts());
         System.out.println();
 
         // print info about the cake
-        cake.printInfo();
+        System.out.println(cake.getFormattedInfo());
     }
 
 
