@@ -43,9 +43,10 @@ public class Cake {
         baseAmounts[8] = 0.4;
     }
 
-    public void calculateingredientAmounts(int portions){
+    public void adjustCakeToPortions(int portions){
         this.portions = portions;
 
+        //calculating needed ingredients
         for (int i = 0; i < ingredients.length; i++) {
             if(ingredients[i].getName().equals("Egg")){
                 adjustedAmounts[i] = Math.round(baseAmounts[i] * portions);
@@ -53,9 +54,18 @@ public class Cake {
                 adjustedAmounts[i] = baseAmounts[i] * portions;
             }
         }
+
+        // calculating stats on the cake
+        calculateTotalWeigth();
+
+        calculateEstimatedFinishedWeight();
+
+        calculateTotalKCAL();
+
+        calculateKCALPerPortions();
     }
 
-    public void calculateTotalWeigth(){
+    private void calculateTotalWeigth(){
         for (int i = 0; i < ingredients.length; i++) {
             if(ingredients[i].getHasAlternativeType()){
                 totalWeightOfIngredients += ingredients[i].getGrams(adjustedAmounts[i]);
@@ -65,19 +75,18 @@ public class Cake {
         }
     }
 
-    public void calculateEstimatedFinishedWeight(){
+    private void calculateEstimatedFinishedWeight(){
         double BAKING_FACTOR = 0.9;
         estimatedFinishedWeight = totalWeightOfIngredients * BAKING_FACTOR;
     }
 
-    public void calculateTotalKCAL() {
-
+    private void calculateTotalKCAL() {
         for (int i = 0; i < ingredients.length; i++) {
             totalCalories += ingredients[i].getKcal(adjustedAmounts[i]);
         }
     }
 
-    public void calculateKCALPerPortions(){
+    private void calculateKCALPerPortions(){
         caloriesPerPortion = totalCalories / portions;
     }
 

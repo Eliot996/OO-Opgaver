@@ -33,4 +33,10 @@ public class Test {
         System.out.println("The total of the dice faces: " + total);
     }
 
+    public static void play(){
+        Die d1 = new Die();
+        Die d2 = new Die();
+
+    }
+
 }
